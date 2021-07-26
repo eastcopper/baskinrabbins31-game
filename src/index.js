@@ -1,3 +1,5 @@
+const playerNumber = document.getElementById('playerNumber');
+const robotNumber = document.getElementById('robotNumber');
 const number = document.getElementById('number');
 const plus1 = document.getElementById('plus1');
 const plus2 = document.getElementById('plus2');
@@ -10,7 +12,7 @@ let select = false;
 let easy = false;
 let hard = false;
 
-number.innerHTML = `${num}`;
+playerNumber.innerHTML = `${num}`;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -20,7 +22,9 @@ function getRandomIntInclusive(min, max) {
 
 function start() {
     if (easy) {
-        num += getRandomIntInclusive(1, 3);
+        randomNumber = getRandomIntInclusive(1, 3)
+        num += randomNumber;
+        robotNumber.innerHTML = `컴퓨터는 ${randomNumber}를 선택하였습니다. ${num}`
         number.innerHTML = `${num}`;
     }
 }
@@ -44,7 +48,7 @@ master.addEventListener('click', function () {
 plus1.addEventListener('click', function () {
     if (select) {
         num++;
-        number.innerHTML = `${num}`;
+        playerNumber.innerHTML = `당신은 1을 선택하였습니다. ${num}`;
         start();
     }
     else {
@@ -55,7 +59,7 @@ plus1.addEventListener('click', function () {
 plus2.addEventListener('click', function () {
     if (select) {
         num += 2;
-        number.innerHTML = `${num}`;
+        playerNumber.innerHTML = `당신은 2를 선택하였습니다. ${num}`;
         start();
     }
     else {
@@ -66,7 +70,7 @@ plus2.addEventListener('click', function () {
 plus3.addEventListener('click', function () {
     if (select) {
         num += 3;
-        number.innerHTML = `${num}`;
+        playerNumber.innerHTML = `당신은 3을 선택하였습니다. ${num}`;
         start();
     }
     else {
