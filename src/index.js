@@ -12,31 +12,51 @@ let hard = false;
 
 number.innerHTML = `${num}`;
 
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function start() {
+    if (easy) {
+        num += getRandomIntInclusive(1, 3);
+        number.innerHTML = `${num}`;
+    }
+}
+
 novice.addEventListener('click', function () {
-    easy = true;
-    select = true;
+    if (!hard) {
+        easy = true;
+        select = true;
+    }
+    
 })
 
 master.addEventListener('click', function () {
-    hard = true;
-    select = true;
+    if (!easy) {
+        hard = true;
+        select = true;
+    }
+    
 })
 
 plus1.addEventListener('click', function () {
     if (select) {
         num++;
         number.innerHTML = `${num}`;
+        start();
     }
     else {
         alert('난이도를 골라주세요')
     }
-
 })
 
 plus2.addEventListener('click', function () {
     if (select) {
         num += 2;
         number.innerHTML = `${num}`;
+        start();
     }
     else {
         alert('난이도를 골라주세요')
@@ -47,6 +67,7 @@ plus3.addEventListener('click', function () {
     if (select) {
         num += 3;
         number.innerHTML = `${num}`;
+        start();
     }
     else {
         alert('난이도를 골라주세요')
