@@ -32,6 +32,18 @@ function start() {
         robotNumber.innerHTML = `컴퓨터는 ${randomNumber}를 선택하였습니다. ${num}`
         number.innerHTML = `${num}`;
     }
+    if (hard && game) {
+        for (let i = 1; i < 4; i++) {
+            for (let j = 0; j < 8; j++) {
+                if (num + i == (4 * j) + 2) {
+                    num += i;
+                    comparison();
+                    robotNumber.innerHTML = `컴퓨터는 ${i}를 선택하였습니다. ${num}`
+                    number.innerHTML = `${num}`;
+                }
+            }
+        }
+    }
 }
 
 function comparison() {
